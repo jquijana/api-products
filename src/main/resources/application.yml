@@ -9,6 +9,3 @@ spring:
     time-zone: "America/Lima"
     date-format: "yyyy-MM-dd"
     timestamp-format: "yyyy-MM-dd HH:mm:ss"
-  data:
-    mongodb:
-      uri: "mongodb+srv://jhosef:quijana@cluster0.zxagh.mongodb.net/web?retryWrites=true&w=majority"

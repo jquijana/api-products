@@ -1,33 +1,31 @@
 package com.products.controllers;
 
-import com.products.domain.entity.Product;
-import com.products.services.IProductService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin
+@Slf4j
 public class ProductController {
 
-  private final IProductService productService;
 
-  @GetMapping("/products")
-  public ResponseEntity<List<Product>> findAllProducts() {
-    return new ResponseEntity<>(this.productService.findAll(), HttpStatus.OK);
-  }
+    @GetMapping("/webhook")
+    public ResponseEntity<Object> webhookGet() {
+        log.info("GET WEBHOOK");
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 
-  @PostMapping("/products")
-  public ResponseEntity<Product> save(@RequestBody Product product) {
-    return new ResponseEntity<>(this.productService.save(product), HttpStatus.CREATED);
-  }
+    @PostMapping("/webhook")
+    public ResponseEntity<Object> webhookPost(@RequestBody Object object) {
+        log.info("POST WEBHOOK");
+        log.info(object.toString());
+        return new ResponseEntity<>(object, HttpStatus.OK);
+    }
 
-  @GetMapping("/products/{productId}")
-  public ResponseEntity<Product> save(@PathVariable("productId") String productId) {
-    return new ResponseEntity<>(this.productService.findById(productId), HttpStatus.OK);
-  }
 }
