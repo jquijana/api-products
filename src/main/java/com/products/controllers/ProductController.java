@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @Slf4j
 public class ProductController {
-
-
     @GetMapping("/webhook")
     public ResponseEntity<Object> webhookGet() {
         log.info("GET WEBHOOK");
