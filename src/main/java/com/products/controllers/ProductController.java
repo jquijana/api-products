@@ -21,7 +21,7 @@ public class ProductController {
 
     @PostMapping("/webhook")
     public ResponseEntity<Object> webhookPost(@RequestBody Object object) {
-        log.info("POST WEBHOOK");
+        log.info("POST WEBHOOK ");
         log.info(object.toString());
         return new ResponseEntity<>(object, HttpStatus.OK);
     }
