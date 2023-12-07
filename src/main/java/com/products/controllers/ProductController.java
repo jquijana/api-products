@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
     @GetMapping("/webhook")
     public ResponseEntity<Object> webhookGet() {
-        log.info("GET WEBHOOK");
+        log.info("GET WEBHOOK --- ");
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
     @PostMapping("/webhook")
     public ResponseEntity<Object> webhookPost(@RequestBody Object object) {
-        log.info("POST WEBHOOK ");
+        log.info("POST WEBHOOK --- ");
         log.info(object.toString());
         return new ResponseEntity<>(object, HttpStatus.OK);
     }
